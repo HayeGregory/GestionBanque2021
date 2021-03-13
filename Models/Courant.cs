@@ -26,9 +26,8 @@ namespace Models
             {
                 if (value < 0) return;
                 
-                    _ligneDeCredit = value;
-                
-                }
+                _ligneDeCredit = value;
+
             }
         }
         public double Solde
@@ -49,20 +48,14 @@ namespace Models
             if (montant < 0) return;                        // exception montant negatif
             if (montant > Solde + LigneDeCredit) return;    // exception : solde insuffisant
 
-                    Solde -= montant;
+            Solde -= montant;
 
-                }
-            }
-            else
-            {
-                // exception montant negatif
-            }
         }
         public void Depot(double montant)
         {
             if (montant < 0) return;                        // exception montant negatif
  
-                Solde += montant;
+            Solde += montant;
             
         }
     }
