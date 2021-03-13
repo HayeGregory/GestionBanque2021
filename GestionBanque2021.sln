@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionBanque2021", "GestionBanque2021\GestionBanque2021.csproj", "{B838BAE5-3D68-40D4-BE51-578F062C7F1A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{E86E3303-75EA-4A75-930F-31F5E9C0A640}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B838BAE5-3D68-40D4-BE51-578F062C7F1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B838BAE5-3D68-40D4-BE51-578F062C7F1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B838BAE5-3D68-40D4-BE51-578F062C7F1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E86E3303-75EA-4A75-930F-31F5E9C0A640}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E86E3303-75EA-4A75-930F-31F5E9C0A640}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E86E3303-75EA-4A75-930F-31F5E9C0A640}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E86E3303-75EA-4A75-930F-31F5E9C0A640}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
