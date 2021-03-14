@@ -55,7 +55,7 @@ namespace GestionBanque2021
             Epargne CE1CB = new Epargne
             {
                 Numero = "8888",
-                Titulaire = ClientA
+                Titulaire = ClientB
             };
 
             AffichageComptes(C1CA, C1CB, C2CA, CE1CA, CE1CB);
@@ -77,8 +77,8 @@ namespace GestionBanque2021
             ING.Ajouter(C1CA);
             ING.Ajouter(C2CA);
             ING.Ajouter(C1CB);
-            //ING.Ajouter(CE1CB);
-            //ING.Ajouter(CE1CA);
+            ING.Ajouter(CE1CB);
+            ING.Ajouter(CE1CA);
 
             AfficherComptes(ING);
             ING["2255"]?.Depot(1500);   // ? pour ne pas executer la methode si l'indexeur renvoi null
@@ -104,10 +104,19 @@ namespace GestionBanque2021
         {
             Console.WriteLine("------------------------------------------------------------------------------");
             Console.WriteLine($"Liste des comptes de la banque {banque.Nom} : ");
-            foreach (Courant compte in banque.Comptes.Values)
+            foreach (Compte compte in banque.Comptes.Values)
             {
-                Console.WriteLine($"N° {compte.Numero} | solde : {compte.Solde, 10} | LDC : {compte.LigneDeCredit,10} | " +
-                                $"titulaire : {compte.Titulaire.Prenom} {compte.Titulaire.Prenom}");
+                if (compte is Courant CC)
+                {
+                    Console.WriteLine($"N° {CC.Numero} | solde : {CC.Solde,10} | LDC : {CC.LigneDeCredit,10} | " +
+                                $"titulaire : {CC.Titulaire.Prenom} {CC.Titulaire.Prenom}");
+                }
+                if (compte is Epargne CE)
+                {
+                    Console.WriteLine($"N° {CE.Numero} | solde : {CE.Solde,10} | LDC : {CE.DateDernierRetrait,10} | " +
+                                $"titulaire : {CE.Titulaire.Prenom} {CE.Titulaire.Prenom}");
+                }
+
             }
         }
 

@@ -7,11 +7,11 @@ namespace Models
     public class Banque
     {
         // attributes
-        private readonly Dictionary<string, Courant> _comptes = new Dictionary<string, Courant>();
+        private readonly Dictionary<string, Compte> _comptes = new Dictionary<string, Compte>();
         
         // props
         public string Nom { get; set; }
-        public Dictionary<string, Courant> Comptes
+        public Dictionary<string, Compte> Comptes
         {
             get
             {
@@ -20,7 +20,7 @@ namespace Models
         }
 
         // indexeurs
-        public Courant this[string index] {
+        public Compte this[string index] {
             get {
                 if (!Comptes.ContainsKey(index)) return null; // exception : compte inexistant
                 return Comptes[index]; 
@@ -29,7 +29,7 @@ namespace Models
         }
 
         // methods
-        public void Ajouter(Courant compte) {
+        public void Ajouter(Compte compte) {
             if (_comptes.ContainsKey(compte.Numero)) return;    // exception : compte existant
 
             Comptes.Add(compte.Numero, compte);
@@ -42,7 +42,7 @@ namespace Models
         public double AvoirDesComptes(Personne titulaire) {
             double total = 0;
 
-            foreach (Courant compte in Comptes.Values)
+            foreach (Compte compte in Comptes.Values)
             {
                 if (compte.Titulaire != titulaire) continue;
                 total += compte;
