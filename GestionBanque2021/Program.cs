@@ -28,7 +28,7 @@ namespace GestionBanque2021
             Console.WriteLine($"Client B: {ClientB.Nom} {ClientB.Prenom} | {ClientB.DateNaiss } ");
             #endregion
 
-            #region test Courant depot retrait
+            #region test Courant/Epargne depot retrait
             Courant C1CA = new Courant
             {
                 Numero = "1111",
@@ -47,13 +47,28 @@ namespace GestionBanque2021
                 LigneDeCredit = 0,
                 Titulaire = ClientA
             };
+            Epargne CE1CA = new Epargne
+            {
+                Numero = "9999",
+                Titulaire = ClientA
+            };
+            Epargne CE1CB = new Epargne
+            {
+                Numero = "8888",
+                Titulaire = ClientA
+            };
 
-            AffichageComptes(C1CA, C1CB, C2CA);
+            AffichageComptes(C1CA, C1CB, C2CA, CE1CA, CE1CB);
             C1CA.Depot(1000);
             C1CB.Depot(2000);
             C2CA.Depot(500);
             C1CA.Retrait(2000);
-            AffichageComptes(C1CA, C1CB, C2CA); 
+
+            CE1CA.Depot(777);
+            CE1CB.Depot(555);
+            CE1CA.Retrait(77);
+            CE1CB.Retrait(55);
+            AffichageComptes(C1CA, C1CB, C2CA, CE1CA, CE1CB); 
             #endregion
 
             #region Test banque , indexeur
@@ -62,6 +77,8 @@ namespace GestionBanque2021
             ING.Ajouter(C1CA);
             ING.Ajouter(C2CA);
             ING.Ajouter(C1CB);
+            //ING.Ajouter(CE1CB);
+            //ING.Ajouter(CE1CA);
 
             AfficherComptes(ING);
             ING["2255"]?.Depot(1500);   // ? pour ne pas executer la methode si l'indexeur renvoi null
@@ -94,7 +111,7 @@ namespace GestionBanque2021
             }
         }
 
-        private static void AffichageComptes(Courant C1CA, Courant C1CB, Courant C2CA)
+        private static void AffichageComptes(Courant C1CA, Courant C1CB, Courant C2CA, Epargne CE1CA, Epargne CE1CB)
         {
             Console.WriteLine("------------------------------------------------------------------------------");
             Console.WriteLine($"C1CA : {C1CA.Numero} | solde : {C1CA.Solde,2} | LDC : {C1CA.LigneDeCredit,2} | " +
@@ -103,6 +120,11 @@ namespace GestionBanque2021
                                 $"titulaire : {C2CA.Titulaire.Prenom} {C2CA.Titulaire.Prenom}");
             Console.WriteLine($"C1CB : {C1CB.Numero} | solde : {C1CB.Solde,2} | LDC : {C1CB.LigneDeCredit,2} | " +
                                 $"titulaire : {C1CB.Titulaire.Prenom} {C1CB.Titulaire.Prenom}");
+            Console.WriteLine($"CE1CA : {CE1CA.Numero} | solde : {CE1CA.Solde,2} | Date Retrait : {CE1CA.DateDernierRetrait,2} | " +
+                                $"titulaire : {CE1CA.Titulaire.Prenom} {CE1CA.Titulaire.Prenom}");
+            Console.WriteLine($"CE1CB : {CE1CB.Numero} | solde : {CE1CB.Solde,2} | Date Retrait : {CE1CB.DateDernierRetrait,2} | " +
+                                $"titulaire : {CE1CB.Titulaire.Prenom} {CE1CB.Titulaire.Prenom}");
+
         }
     }
 }
