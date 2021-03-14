@@ -38,5 +38,19 @@ namespace Models
         public bool Supprimer(string numero) {
             return Comptes.Remove(numero);
         }
+
+        public double AvoirDesComptes(Personne titulaire) {
+            double total = 0;
+
+            foreach (Courant compte in Comptes.Values)
+            {
+                if (compte.Titulaire != titulaire) continue;
+                total += compte;
+            }
+
+            return total;
+        }
+
+
     }
 }

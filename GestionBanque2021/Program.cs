@@ -69,10 +69,18 @@ namespace GestionBanque2021
             double soldeTmp = ING["1111"].Solde;
             // ING["1111"] = C2CA; // indexeur set a private sinon , on peut remplacer des comtpes :DD
 
-            AfficherComptes(ING); 
+            AfficherComptes(ING);
             #endregion
 
+            #region test Surcharge operator
+            ING["1111"].Depot(5000);
+            ING["3333"].Retrait(2500);
+            AfficherComptes(ING);
 
+            Console.WriteLine($"Avoir des comptes de {ClientA.Prenom} : {ING.AvoirDesComptes(ClientA)}");
+            Console.WriteLine($"Avoir des comptes de {ClientB.Prenom} : {ING.AvoirDesComptes(ClientB)}");
+
+            #endregion
         }
 
         private static void AfficherComptes(Banque banque)

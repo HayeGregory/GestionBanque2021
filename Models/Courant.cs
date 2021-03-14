@@ -58,5 +58,10 @@ namespace Models
             Solde += montant;
             
         }
+
+        public static double operator +(double t, Courant c)
+        {
+            return (t > 0 ? t : 0) + (c.Solde > 0 ? c.Solde : 0);
+        }
     }
 }
