@@ -37,3 +37,15 @@
 
 ==================================================================================================================
 
+1. Créer une classe « Epargne » permettant la gestion d’un carnet d’épargne qui devra implémenter
+	 Les propriétés publiques :
+		 Numéro (string)
+		 Solde (double) - Lecture seule
+		 DateDernierRetrait (DateTime) - représentant la date du dernier retrait sur le carnet
+		 Titulaire (Personne)
+	 Les méthodes publiques :
+		 void Retrait(double Montant)
+		 void Depot(double Montant)
+
+==================================================================================================================
+
