@@ -17,3 +17,14 @@
 		 void Depot(double Montant)
 
 ==================================================================================================================
+
+1. Créer une classe « Banque » qui gérera les comptes de la banque
+	Cette classe devra implémenter :
+	 Les propriétés :
+		 Nom (string) - Nom de la banque
+	 Un indexeur retournant un compte sur base de son numéro.
+	 Les méthodes :
+		 void Ajouter(Courant compte)
+		 void Supprimer(string Numero)
+
+==================================================================================================================
