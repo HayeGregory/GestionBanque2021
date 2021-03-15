@@ -27,5 +27,10 @@ namespace Models
         {
             base.Retrait(montant, LigneDeCredit);
         }
+
+        protected override double CalculInteret()
+        {
+            return Solde * (Solde < 0 ? 0.0975D : 0.03D);
+        }
     }
 }

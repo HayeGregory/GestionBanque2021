@@ -98,6 +98,20 @@ namespace GestionBanque2021
             Console.WriteLine($"Avoir des comptes de {ClientB.Prenom} : {ING.AvoirDesComptes(ClientB)}");
 
             #endregion
+            #region test Abstraction, calcul interet
+            ING["8888"].Retrait(500);
+
+            foreach (Compte compte in ING.Comptes.Values)
+            {
+                compte.AppliquerInteret();
+            }
+
+            AfficherComptes(ING);
+
+            Console.WriteLine($"Avoir des comptes de {ClientA.Prenom} : {ING.AvoirDesComptes(ClientA)}");
+            Console.WriteLine($"Avoir des comptes de {ClientB.Prenom} : {ING.AvoirDesComptes(ClientB)}");
+
+            #endregion
         }
 
         private static void AfficherComptes(Banque banque)

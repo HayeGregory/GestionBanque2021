@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Models
 {
-    public class Compte
+    abstract public class Compte
     {
         // attributes
         private string _numero;
@@ -50,6 +50,13 @@ namespace Models
 
         }
 
+        protected abstract double CalculInteret();
+
+        public void AppliquerInteret() {
+            Solde += CalculInteret();
+        }
+
+        // operator
         public static double operator +(double t, Compte c)
         {
             return (t > 0 ? t : 0) + (c.Solde > 0 ? c.Solde : 0);
